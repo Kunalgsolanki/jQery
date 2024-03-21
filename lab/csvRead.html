@@ -1,0 +1,43 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.js" integrity="sha512-2ypsPur7qcA+2JjmmIJR1c4GWFqTLIe1naXXplraMg0aWyTOyAMpOk+QL+ULpzwrO/GdwA3qB3FhVyyiR8gdhw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <table id="theResult" border="1"></table>
+</body>
+<script>
+$(document).ready(function() {
+    $.get('./diabetes .csv', function(theData) {
+        var data = $.csv.toObjects(theData);
+        var theHtml = createTable(data);
+        $('#theResult').html(theHtml);
+    });
+});
+
+function createTable(data) {
+    var html = '';
+    
+    if(data[0].constructor === Object) {
+        // Add header row with column names and index
+        html += '<tr>\r\n';
+        html += '<th>Index</th>\r\n'; // Column for index
+        for(var item in data[0]) {
+            html += '<th>' + item + '</th>\r\n';
+        }
+        html += '</tr>\r\n';
+        
+        // Add rows with data
+        for(var i = 0; i < data.length; i++) {
+            html += '<tr>\r\n';
+            html += '<td>' + i + '</td>'; // Index column
+            for(var item in data[i]) {
+                html += '<td>' + data[i][item] + '</td>\r\n';
+            }
+            html += '</tr>\r\n';
+        }
+    }
+    return html;
+}
+</script>
+</html>

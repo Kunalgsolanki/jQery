@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Practice</title>
+</head>
+<body>
+    
+    <div style="justify-content: center; align-items: center; display: flex; flex-direction: column;">
+        <div><h1>Canvas Practice</h1></div>
+
+        <canvas id="c1" width="100%" height="100%" style="border:1px solid #000000;"></canvas>
+
+    </div>
+
+
+    <script>
+        const c1 = document.getElementById("c1");
+        const ctx = c1.getContext("2d"); // Corrected: getContext() was missing assignment
+        ctx.fillStyle = "red";
+        ctx.fillRect(0, 0, 150, 75);
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xmlReadusing Jquery</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+ 
+   <table id="sales"></table>
+    <script>
+     $(document).ready(function(){
+
+            
+  $.ajax({
+     type:"GET",
+     url:"index.xml",
+     dataType:"xml",
+     success:xmlParser
+  })
+   function xmlParser(data) {
+    console.table(data);
+     $(data).find('region').each( function(){
+         var theTerritory = $(this).find("territor").text();
+         var numEmployee = $(this).find("employee").text();
+         var amount = $(this).find("amount").text();
+
+         $("#sales").append( 
+
+        '<tr>  <td>' + theTerritory +'<td> '+ ' <td>' + numEmployee +'<td> ' + '<td>' + amount +'<td>  </tr>'
+         )
+         
+     })
+   }
+
+     })
+    </script>
+</body>
+</html>

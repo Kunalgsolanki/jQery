@@ -1,0 +1,38 @@
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</script>
+</head>
+<body>
+<table id="p1" border="1"></table>
+</body>
+<script>
+  var content=""
+$(document).ready(function(){
+$.get('./index.text',function(d1){
+//alert(d1)
+          d1 = d1.replace(/\r/g,''); //flag indicates that the replacement should be applied globally to all occurrences in the string, not just the first one found
+          d1 = d1.replace(/\t/g,' ');   //matches a single tab character 9flag indicates that the replacement should be applied globally to all occurrences in the string, not just the first one found
+          d1 = d1.split('\n');
+          totalRows = d1.length;
+          theHead = d1[0].split(' ');
+          content += "<tr>";
+          theHead.forEach(TH);
+          content += "</tr>";
+          for(let i=1;i<totalRows;++i){
+            theTD = d1[i].split(' ');
+            content += "<tr>";
+            theTD.forEach(TD);
+            content += "</tr>";
+          }
+          $('#p1').html(content);
+        });
+      });
+      function TH(value){
+        content += "<th>" + value + "</th>";
+      }
+      function TD(value){
+        content += "<td>" + value + "</td>";
+      }
+      </script>
+</html>

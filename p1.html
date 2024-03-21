@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>read data form txt file </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    
+     <!--  show data into page create element  give define id  -->
+      <div id="showdata"></div>
+   
+    <script>
+      $(document).ready(function(){
+        $.get("./p1.text", function(data){
+            //  data in alter box 
+            // alert(data)
+        //    $("#showdata").text(data)
+
+        })
+      })
+    </script>
+</body>
+</html>

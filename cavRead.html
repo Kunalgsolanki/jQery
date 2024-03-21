@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>csv Read </title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-csv/1.0.21/jquery.csv.js"
+        integrity="sha512-2ypsPur7qcA+2JjmmIJR1c4GWFqTLIe1naXXplraMg0aWyTOyAMpOk+QL+ULpzwrO/GdwA3qB3FhVyyiR8gdhw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+
+    <table id="result" border="1"></table>
+
+    <script>
+        $(document).ready(function () {
+      
+            $.get("./lab/diabetes .csv", function(data){
+                 var a1 =[]
+                 console.log(data)
+                 var data1 = $.csv.toObjects(data)
+               
+                  // convert into the objects
+                console.log(data1, "object convertred data ")
+                 
+                 var thehtml = createTable(data1)
+                 $("#result").html(thehtml)
+            })
+        }
+        )
+
+
+         function  createTable (data){
+
+             var html =''; 
+              if( data[0].constructor === Object ){
+                 html += ' <tr>\r\n';
+                 html += '<th>Index</th>\r\n ';
+                
+                 for(var item in data[0]){
+                     html += '<th>' +item + '</th>\r\n' ;
+
+                 }
+                 html += '</tr>\r\n';
+              }
+//     for the row data 
+ for(var i=0; i<data.length;i++){ // index
+     html += '<tr>\r\n'; 
+     html +='<td>' + i + '</td> '; 
+     for(var  item in data[i]){// value 
+         html += '<td>' + data[i][item]+'</td>\r\n'
+
+     }
+     html += '</tr>\r\n';
+
+ }
+               return html 
+         }
+    </script>
+</body>
+
+</html>
