@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <title>Prectice</title>
+</head>
+<body>
+  
+<table id="result" ></table>
+
+    <script>
+        $( document).ready(function(){
+
+          $.ajax({
+            type:"GET", 
+            url:"index.xml",
+            dataType:"xml",
+            success: showData
+          })
+
+         function showData(data){
+  
+          const territor =   $(data).find("region").each(function(){ // find rooot node each loop find that childls 
+            const territor = $(this).find("territor").text();
+            const employee = $(this).find("employee").text();
+            const amount = $(this).find("amount").text();
+
+            $("#result").append(
+
+            '<tr> <td>' + territor+ '</td>' + '<td>'+ employee+ '</td>'+ '<td>'+amount+ '</td> </tr>'  
+
+            )
+
+
+            
+
+          })
+         }
+
+        })
+        
+    </script>
+    
+</body>
+</html>
