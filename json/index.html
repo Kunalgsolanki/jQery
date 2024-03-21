@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Read</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<body>
+    <table id="result" border ="2"  style="justify-content: center; display: flex;">
+        <tr>
+            <th>Name</th>
+            <th>position</th>
+            <th>Enrollment No</th>
+           
+            <th>class</th>
+            <th>Betcch</th>
+
+        </tr>
+        
+    </table>
+
+    <script>
+        $(document).ready(function(){
+            $.getJSON("./data.json", function(data){
+                console.log(data);
+                $.each(data, function(index, item){
+                    "<tr><td>" +  "Name"+ "</td></tr>"
+                    $("#result").append (
+                         "<tr>" +
+                    "<td>" + item.name + "</td>"
+                    +
+                    "<td>" + item.position + "</td>" +
+                    "<td>" + item.Enrollment_No + "</td>"+
+                    "<td>" + item.class + "</td>"+
+                    "<td>" + item.Betcch + "</td>"+
+
+                    "</tr>"
+                    
+                    
+                    
+                    );
+                });
+            });
+        });
+    </script>
+</body>
+</html>

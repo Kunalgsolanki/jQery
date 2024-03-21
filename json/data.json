@@ -1,0 +1,51 @@
+[
+    {
+         "name":"kunal",
+        "position":"fullstack developer", 
+        "Enrollment_No": "210410107016",
+        "class":"Ty-1", 
+        "Betcch":"A "
+    }, 
+    {
+       "name":"Aryan",
+       "position":"AR/VR developer", 
+       "Enrollment_No": "210410107073",
+       "class":"Ty-1", 
+       "Betcch":"c"
+   }, 
+   {
+    "name":"Drupal",
+    "position":"Backend developer + App developer ", 
+    "Enrollment_No": "210410107001",
+    "class":"Ty-1", 
+    "Betcch":"A"
+}, 
+{
+    "name":"Mithil",
+    "position":"Machine Learinhg developer", 
+    "Enrollment_No": "210410107005",
+    "class":"Ty-3", 
+    "Betcch":"A"
+}, 
+{
+    "name":"Param",
+    "position":"Quntom Machine Learinhg developer", 
+    "Enrollment_No": "210410107018",
+    "class":"Ty-3", 
+    "Betcch":"A"
+}, 
+{
+    "name":"Bhoy Aniket",
+    "position":"Full Stack developer", 
+    "Enrollment_No": "220410107002",
+    "class":"Ty-2", 
+    "Betcch":"A"
+},
+{
+    "name":"Pinak",
+    "position":"Full Stack developer", 
+    "Enrollment_No": "220410107003",
+    "class":"Ty-2", 
+    "Betcch":"A"
+}
+]
